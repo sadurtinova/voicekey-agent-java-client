@@ -1,0 +1,76 @@
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.speechpro.biometric.platform.api</groupId>
+    <artifactId>agent-java-rest-client</artifactId>
+    <version>1.0.119</version>
+    <packaging>jar</packaging>
+    <name>AgentJavaRestClient: root project</name>
+
+    <properties>
+        <maven.compiler.mode>1.8</maven.compiler.mode>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.version>3.5.1</maven.compiler.version>
+        <jersey.version>2.23.1</jersey.version>
+        <jackson.annotations.version>2.6.1</jackson.annotations.version>
+        <guava.version>19.0</guava.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>pulse_server.stc</id>
+            <name>Pulse Server</name>
+            <url>http://pulse-server.stc:8081/nexus/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.speechpro.biometric.platform.component</groupId>
+            <artifactId>biometric-platform-component-core</artifactId>
+            <version>${env.PLATFORM_VERSION}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.annotations.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>agent-java-rest-client</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <optimize>true</optimize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
